@@ -473,6 +473,19 @@ h1 {
     font-size: 20px;
     animation: bounce 1.5s infinite;
 }
+/* 🔹 Ajustes en móviles */
+@media screen and (max-width: 600px) {
+    .donation-banner {
+        flex-direction: column;
+        text-align: center;
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+    .donation-banner button {
+        width: 100%;
+        margin-top: 5px;
+    }
+}
 
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
