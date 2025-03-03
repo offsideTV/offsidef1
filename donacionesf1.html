@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donaciones - OffsideTV</title>
+    <link rel="stylesheet" href="estilof1.css">
+    <link rel="icon" href="https://raw.githubusercontent.com/OffsideTV/logosweb/main/logopestaña2-.webp" type="image/webp">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+ <!-- Google tag (gtag.js) -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-PS1PQ89GCR"></script>
+ <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+ 
+   gtag('config', 'G-PS1PQ89GCR');
+ </script>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="https://raw.githubusercontent.com/OffsideTV/logosweb/main/logotvoriginal-.webp" alt="OffsideTV Logo" class="logo"> 
+        </a>
+        <button id="f1Button" class="donate-button"> Ir al inicio</button>
+    </header>
+    <div class="donation-container">
+        <p class="secure-donation">🔒 Tus donaciones son seguras y se procesan a través de Mercado Pago.</p>
+        <h1>¡Gracias por utilizar OffsideTV!</h1>
+        <h2>Elegí un monto y hacé clic para donar:</h2>
+        
+        <div class="donation-options">        
+            <a href="https://mpago.la/1W76dji?monto=1100" class="donation-link" target="_blank">$1.100</a>
+            <a href="https://mpago.la/2eMtWqz?monto=2100" class="donation-link" target="_blank">$2.100</a>
+            <a href="https://mpago.la/11Az9kj?monto=5100" class="donation-link" target="_blank">$5.100</a>
+            <a href="https://mpago.la/1uVMzaf?monto=10000" class="donation-link" target="_blank">$10.000</a>
+        </div>
+    
+        <div class="custom-donation">
+            <h2>¿Querés donar otro monto?</h2>
+            <p>Hacé clic en el botón y elegí el valor que prefieras.</p>
+            <button id="customDonateButton">Donar ahora</button>
+          
+
+        </div>
+    </div>
+    
+        
+        <script>
+            document.getElementById('customDonateButton').addEventListener('click', function() {
+                window.open('https://link.mercadopago.com.ar/offsidetv', '_blank');
+            });
+
+            document.getElementById('f1Button').addEventListener('click', function() {
+    window.location.href = 'formula1.html'; 
+});
+
+        </script>
+        
+        
+        
+</body>
+</html>
