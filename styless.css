@@ -1,0 +1,866 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #3072d4, #c3cfe2);
+    background-attachment: fixed;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #000000;
+}
+
+header {
+    background: linear-gradient(135deg, #3072d4, #c3cfe2); /* Color de fondo del header */
+    padding: 10px 20px; /* Espaciado interno */
+    display: flex;
+    justify-content: center; 
+    align-items: center; /* Centra verticalmente los elementos */
+    position: relative;
+}
+
+.header-content {
+    display: flex;
+    align-items: center; /* Alinea el logo y el botón verticalmente */
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+.logo {
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+    
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+h1 {
+    font-size: 2em;
+    margin: 10px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    width: 95%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.accordion {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 20px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    border-radius: 12px;
+    margin: 10px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.accordion::after {
+    content: '▼';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.accordion.active::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.accordion:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    transform: scale(1.02);
+}
+
+.panel {
+    display: none; /* Oculto por defecto, se mostrará con JavaScript */
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    margin-top: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    overflow: visible; /* Asegúrate de que el contenido no esté recortado */
+}
+
+.panel a {
+    display: block;
+    color: #2575fc;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.panel a:hover {
+    color: #6a11cb;
+    transform: translateX(10px);
+}
+
+.panel a::before {
+    content: '→';
+    margin-right: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.panel a:hover::before {
+    opacity: 1;
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%; /* Reduce un poco el ancho */
+        max-width: 320px; /* Limita el tamaño máximo en móviles */
+        padding: 15px; /* Reduce el padding para que no se vea tan grande */
+        margin: 20px auto; /* Ajusta el margen superior e inferior */
+    }
+}
+@media (max-width: 480px) {
+    .canales {
+        width: 90%; /* Reduce un poco el ancho */
+        max-width: 320px; /* Limita el tamaño máximo en móviles */
+        padding: 15px; /* Reduce el padding para que no se vea tan grande */
+        margin: 20px auto; /* Ajusta el margen superior e inferior */
+    }
+}
+/* Nuevos estilos para eventos y subeventos */
+.event-btn {
+    background: #2575fc;
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    margin: 5px 0;
+    width: 100%;
+    border: none;
+    text-align: left;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    border-radius: 8px;
+}
+
+.event-btn:hover {
+    background: #6a11cb;
+    transform: scale(1.02);
+}
+
+.sub-events {
+    display: block; /* Mostrar siempre los subeventos */
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.sub-events a {
+    display: block;
+    color: #2575fc;
+    text-decoration: none;
+    padding: 8px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.sub-events a:hover {
+    color: #6a11cb;
+    transform: translateX(10px);
+}
+
+.sub-events a::before {
+    content: '→';
+    margin-right: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sub-events a:hover::before {
+    opacity: 1;
+}
+
+/* Nuevos estilos para la cuadrícula de canales */
+.channels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.channel {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.channel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.channel-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.channel .accordion {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    border-radius: 8px;
+    margin: 5px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.channel .accordion::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.channel .accordion.active::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.channel .accordion:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    transform: scale(1.02);
+}
+
+.channel .panel {
+    display: none;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    margin-top: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.channel .panel a {
+    display: block;
+    color: #2575fc;
+    text-decoration: none;
+    padding: 8px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.channel .panel a:hover {
+    color: #6a11cb;
+    transform: translateX(10px);
+}
+
+.channel .panel a::before {
+    content: '→';
+    margin-right: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.channel .panel a:hover::before {
+    opacity: 1;
+}
+/* Estilos existentes... */
+
+/* Estilos para el contenedor del iframe en reproductor.html */
+#video-container {
+    margin-top: 20px;
+    position: relative;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+    height: 0;
+    overflow: hidden;
+    border: 3px solid rgb(16, 0, 235);
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.205);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+}
+
+
+/* Estilos para la sección de la agenda */
+.agenda {
+    margin-bottom: 40px; /* Espacio entre la agenda y los canales */
+    max-height: 400px; /* Ajusta la altura según necesites */
+    overflow-y: auto; /* Agrega scroll vertical cuando sea necesario */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Borde sutil */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    background: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    position: relative;
+    overflow-x: hidden; /* Evita el scroll horizontal */
+}
+
+/* Estilo para la scrollbar en navegadores WebKit (Chrome, Edge, Safari) */
+.agenda::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+.agenda::-webkit-scrollbar-track {
+    background: rgba(241, 241, 241, 0.5); /* Fondo de la pista */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.agenda::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.7); /* Color del thumb */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background 0.3s ease; /* Transición suave */
+}
+
+.agenda::-webkit-scrollbar-thumb:hover {
+    background: rgba(85, 85, 85, 0.9); /* Color del thumb al hacer hover */
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .agenda {
+        max-height: 250px; /* Menos altura para pantallas pequeñas */
+        padding: 10px; /* Menos padding en móviles */
+    }
+
+    /* Ajustar la barra de desplazamiento para móviles */
+    .agenda::-webkit-scrollbar {
+        width: 6px; /* Barra más delgada en móviles */
+    }
+
+    .agenda::-webkit-scrollbar-thumb {
+        background: rgba(136, 136, 136, 0.8); /* Color más visible en móviles */
+    }
+}
+
+/* Estilos para el título de la agenda */
+.agenda h2 {
+    font-size: 1.5em;
+    
+    color: #1b1b1b;
+    text-align: center; /* Centrar el título */
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    padding: 10px;
+    z-index: 10;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Línea divisoria */
+}
+
+
+/* Estilos para la sección de los canales */
+.canales h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #1b1b1b;
+}
+
+.channels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.channel {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.channel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.channel-logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.channel .accordion {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    border-radius: 8px;
+    margin: 5px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.channel .accordion::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.channel .accordion.active::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.channel .accordion:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    transform: scale(1.02);
+}
+
+.channel .panel {
+    display: none;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    margin-top: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.channel .panel a {
+    display: block;
+    color: #2575fc;
+    text-decoration: none;
+    padding: 8px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.channel .panel a:hover {
+    color: #6a11cb;
+    transform: translateX(10px);
+}
+
+.channel .panel a::before {
+    content: '→';
+    margin-right: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.channel .panel a:hover::before {
+    opacity: 1;
+}
+/* Estilos para el título dentro del botón */
+.accordion h3 {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center; /* Asegurar que el texto esté centrado */
+}
+
+/* Estilos para el horario dentro del botón */
+.accordion p {
+    margin: 10px 0 0;
+    font-size: 1em;
+    font-weight: normal;
+    opacity: 0.9;
+    text-align: center; /* Asegurar que el texto esté centrado */
+}
+/* Estilos para el contenedor del buscador */
+.search-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilos para el campo de búsqueda */
+.search-input {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #2575fc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 8px rgba(37, 117, 252, 0.5);
+}
+
+/* Estilos para los canales ocultos */
+.channel[style*="display: none"] {
+    display: none !important;
+}
+@media (max-width: 768px) {
+    .channels-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .accordion {
+        font-size: 16px;
+    }
+}
+@media (max-width: 768px) {
+    .agenda {
+        max-height: 250px;
+        padding: 10px;
+    }
+
+    .agenda::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .agenda::-webkit-scrollbar-thumb {
+        background: rgba(136, 136, 136, 0.8);
+    }
+}
+
+
+/* Estilos para el botón de DMCA */
+.dmca-button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#dmcaButton {
+    background-color: #007BFF;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+#dmcaButton:hover {
+    background-color: #0056b3;
+}
+
+.dmca-text {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+}
+/* Estilo para el botón de donaciones en el header */
+.donate-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.donate-button:hover {
+    background-color: #5a32c7;
+}
+
+/* Estilo para la página de donaciones */
+.donation-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.donation-options {
+    margin-bottom: 20px;
+}
+
+.donation-link {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.donation-link:hover {
+    background-color: #007BFF;
+}
+
+.custom-donation {
+    margin-top: 20px;
+}
+
+.custom-donation input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.custom-donation button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-donation button:hover {
+    background-color: #007BFF;
+}
+
+
+.donation-banner {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #007BFF;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    max-width: 90%;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.donation-banner button {
+    background: #000000;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.donation-banner button:hover {
+    background: #52504f;
+}
+
+.donation-banner .close-btn {
+    background: #000c18;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.donation-icon {
+    font-size: 20px;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+/* 🔹 Ajustes en móviles */
+@media screen and (max-width: 600px) {
+    .donation-banner {
+        flex-direction: column;
+        text-align: center;
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+    .donation-banner button {
+        width: 100%;
+        margin-top: 5px;
+    }
+}
+
+
+
+
+/* Estilo del botón destacado */
+.event.featured .accordion {
+    background: linear-gradient(45deg, #ff0000, #ff9900);
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    border-radius: 12px;
+    margin: 10px 0;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    box-sizing: border-box;
+}
+
+/* Insignia de evento destacado */
+.featured-badge {
+    background: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 8px;
+    border-radius: 25px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+@media (max-width: 768px) {
+    .featured-match {
+        margin-top: -50px;
+        width: 95%;
+        margin: 0 auto 15px auto; /* Centrarlo y dar espacio debajo */
+        padding: 20px;
+        background: #ffd700; /* Un color destacado */
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .featured-match .event {
+        font-size: 10px; /* Reducir tamaño del texto */
+        padding: 10px;
+    }
+
+    .featured-match button {
+        font-size: 10px; /* Ajustar tamaño del botón */
+        padding: 10px;
+    }
+
+    .regular-matches {
+        margin-top: 20px; /* Evita que se superponga con el destacado */
+    }
+    .featured-badge {
+        top: -4px; /* Lo sube más para evitar que tape el título */
+        right: 50%; /* Lo centra en la parte superior */
+        transform: translateX(50%); /* Ajusta su posición horizontal */
+        font-size: 12px; /* Mejora la legibilidad en móviles */
+    }
+}
+/* Ajustes específicos para móviles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Alinear los elementos verticalmente */
+        padding: 10px; /* Reducir el padding */
+    }
+
+    .donate-button {
+        width: 55%; /* Hacer que los botones ocupen todo el ancho */
+        margin: 5px 0; /* Ajustar el margen entre botones */
+        padding: 8px 12px; /* Ajustar el padding para móviles */
+        font-size: 14px; /* Reducir el tamaño de la fuente para móviles */
+    }
+
+    .header-content {
+        flex-direction: column; /* Alinear los elementos verticalmente */
+        align-items: center; /* Centrar los elementos */
+    }
+
+    .logo {
+        margin-bottom: 10px; /* Añadir margen inferior al logo */
+    }
+}
+
+
+/* Estilos específicos para móviles */
+@media (max-width: 768px) {
+    .panel {
+        padding: 10px; /* Reducir el padding para ahorrar espacio */
+        margin-top: 5px; /* Reducir el margen superior */
+        border-radius: 5px; /* Bordes más suaves */
+    }
+
+    .panel a {
+        padding: 8px; /* Reducir el padding de los enlaces */
+        font-size: 14px; /* Reducir el tamaño de la fuente */
+    }
+
+    .panel a:hover {
+        transform: translateX(5px); /* Reducir la transformación en hover */
+    }
+
+    .panel a::before {
+        margin-right: 5px; /* Reducir el margen del ícono */
+    }
+}
